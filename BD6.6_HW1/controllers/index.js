@@ -24,7 +24,7 @@ function getAllMovies() {
 }
 
 function getMovieById(id) {
-  return movies.find((movie) => momvie.movieId === id);
+  return movies.find((movie) => movie.movieId === id);
 }
 
 module.exports = {

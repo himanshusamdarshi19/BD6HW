@@ -8,15 +8,19 @@ app.use(cors());
 
 //Endpoint to get all movie
 app.get("/movies", async (req, res) => {
-  let result = getAllMovies();
+  let result = await getAllMovies();
   res.json({ result });
 });
 
 //Endpoint to get movie by id
 app.get("/movies/details/:id", async (req, res) => {
-  let id = parseInt(req.params.id);
-  let result = getMovieById(id);
-  res.json({ result });
+  try {
+    let id = parseInt(req.params.id);
+    let result = await getMovieById(id);
+    res.json({ result });
+  } catch (error) {
+    res.json(error);
+  }
 });
 
 module.exports = {
